@@ -88,7 +88,7 @@ void Matrix::Cout_Matrix() // вывод матрицы
 			cout << " " << _matrix[i][j];
 		};
 		cout << "\n";
-	};
+	}; 
 }
 
 
