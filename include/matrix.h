@@ -18,6 +18,7 @@ public:
 	int* operator [](int i);
 	int get_rows();
 	int get_columns();
+	bool operator== (const matrix &right) const; 
 private:
 	void swap(Matrix & m1);
 	string s{};
