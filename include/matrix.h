@@ -24,6 +24,7 @@ private:
 	void swap(Matrix & m1);
 	string s{};
 	int rows{};
+	int num {};
 	int columns{};
 	int **_matrix{};
 };
