@@ -20,7 +20,7 @@ Matrix::Matrix(int _rows, int _columns):rows(_rows),columns(_columns)//конс�
 		for (int j = 0; j < columns; j++) _matrix[i][j] = 0;
 	};
 }
-void Matrix::get_num(int s){
+void Matrix::get_num(string s2){
 	string s1;
 	s1 = s2 + ".txt";
 	ifstream fin(s1); // сконструируем объект класса ifstream для ввода из файла
