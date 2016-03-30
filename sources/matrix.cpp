@@ -21,7 +21,6 @@ Matrix::Matrix(int _rows, int _columns):rows(_rows),columns(_columns)//конс�
 	};
 }
 void Matrix::get_num(string s){
-
 	ifstream fin(s); // сконструируем объект класса ifstream для ввода из файла
 	if (fin.is_open()) {
 		fin>>num;
@@ -64,11 +63,9 @@ bool Matrix::operator== (const Matrix &r) const
 	return true; 
 }
 
-void Matrix::Get_Matrix(string s2) // получаем матрицу из файла
+void Matrix::Get_Matrix(string s) // получаем матрицу из файла
 {
-	string s1;
-	s1 = s2 + ".txt";
-	ifstream fin(s1); // сконструируем объект класса ifstream для ввода из файла
+	ifstream fin(s); // сконструируем объект класса ifstream для ввода из файла
 	if (fin.is_open()) {
 		for (int i = 0; i < rows; i++)
 			for (int j = 0; j < columns; j++)
