@@ -4,7 +4,7 @@
 #include <matrix.h>
 #include <iostream>
 
-Matrix::Matrix(): rows(0), columns(0)//конструктор инициализации 
+Matrix::Matrix(): rows(0), columns(0),num(0)//конструктор инициализации 
 {
 	_matrix = new int*[0];
 	_matrix[0] = new int[0];
@@ -19,6 +19,20 @@ Matrix::Matrix(int _rows, int _columns):rows(_rows),columns(_columns)//конс�
 	for (int i = 0; i < rows; i++) { //  обнуление массива
 		for (int j = 0; j < columns; j++) _matrix[i][j] = 0;
 	};
+}
+Matrix::get_num(int s){
+	string s1;
+	s1 = s2 + ".txt";
+	ifstream fin(s1); // сконструируем объект класса ifstream для ввода из файла
+	if (fin.is_open()) {
+		fin>>num;
+		fin.close(); // закрываем файл
+	}
+	else {
+		cout << "Error name";
+		exit(0);
+	}
+	
 }
 
 Matrix::Matrix(const Matrix & matrix):rows(matrix.rows),columns(matrix.columns)//конструктор копирования 
