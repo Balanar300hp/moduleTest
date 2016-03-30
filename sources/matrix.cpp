@@ -38,14 +38,14 @@ Matrix::~Matrix() // деструктор
 
 	delete[] _matrix;
 }
-bool Matrix::operator== (const matrix &right) const
+bool Matrix::operator== (const Matrix &r) const
 {
-	if (rows != right.rows || columns != right.columns)
+	if (rows != r.rows || columns != r.columns)
 	return false; 
 
 	for (int ix = 0; ix < rows; ix++)
 	for (int jx = 0; jx < columns; jx++)
-	if (_matrix[ix][jx] != right._matrix[ix][jx])
+	if (_matrix[ix][jx] != r._matrix[ix][jx])
 	return false; 
 
 	return true; 
