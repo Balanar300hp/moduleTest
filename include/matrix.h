@@ -15,7 +15,7 @@ public:
 	Matrix &operator=(const Matrix &matrix);
 	Matrix operator +(const Matrix& firstMatrix);
 	Matrix operator *(const Matrix &m);
-	void get_num(int c);
+	void get_num(string s);
 	int* operator [](int i);
 	int get_rows();
 	int get_columns();
