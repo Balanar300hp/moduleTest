@@ -38,6 +38,18 @@ Matrix::~Matrix() // деструктор
 
 	delete[] _matrix;
 }
+bool Matrix::operator== (const matrix &right) const
+{
+	if (rows != right.rows || columns != right.columns)
+	return false; 
+
+	for (int ix = 0; ix < rows; ix++)
+	for (int jx = 0; jx < columns; jx++)
+	if (_matrix[ix][jx] != right._matrix[ix][jx])
+	return false; 
+
+	return true; 
+}
 
 void Matrix::Get_Matrix(string s2) // получаем матрицу из файла
 {
