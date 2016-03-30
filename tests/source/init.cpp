@@ -10,13 +10,11 @@ SCENARIO("Matrix init", "[init]") {
 		auto columns = 3;
 
 		WHEN("Create instansce of Matrix") {
-
-			Matrix matrix(rows, columns);
-
+			matrix matrix(rows, columns);
 			THEN("The number of rows and columns must be preserved") {
 
-				REQUIRE(matrix.get_rows() == rows);
-				REQUIRE(matrix.get_columns() == columns);
+				REQUIRE(matrix.get_num_rows() == rows);
+				REQUIRE(matrix.get_num_cols() == columns);
 			}
 		}
 	}
