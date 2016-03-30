@@ -48,3 +48,9 @@ SCENARIO("Matrix: operator ==", "[equal]") {
 	bool f = (A == B);
 	REQUIRE(f);
 }
+SCENARIO("Matrix: operator []", "[addition]") {
+	Matrix A = Matrix(2, 2);
+	A.Get_Matrix("A2x2.txt");
+	expected.get_num("A.txt");
+	REQUIRE(A[3]==expected);
+}
