@@ -41,7 +41,7 @@ Matrix expected = Matrix(2, 2);
 	REQUIRE(result == expected);
 }
 
-SCENARIO("Matrix: operator =", "[equal]") {
+SCENARIO("Matrix: operator ==", "[equal]") {
 	Matrix A, B;
 	A.Get_Matrix("A2x2.txt");
 	B.Get_Matrix("A2x2.txt");
