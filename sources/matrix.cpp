@@ -20,18 +20,6 @@ Matrix::Matrix(int _rows, int _columns):rows(_rows),columns(_columns)//конс�
 		for (int j = 0; j < columns; j++) _matrix[i][j] = 0;
 	};
 }
-void Matrix::get_num(string s){
-	ifstream fin(s); // сконструируем объект класса ifstream для ввода из файла
-	if (fin.is_open()) {
-		fin>>num;
-		fin.close(); // закрываем файл
-	}
-	else {
-		cout << "Error name";
-		exit(0);
-	}
-	
-}
 
 Matrix::Matrix(const Matrix & matrix):rows(matrix.rows),columns(matrix.columns)//конструктор копирования 
 {
@@ -50,7 +38,7 @@ Matrix::~Matrix() // деструктор
 
 	delete[] _matrix;
 }
-bool Matrix::operator== (const Matrix &r) const
+bool Matrix::operator ==(const Matrix &r) const
 {
 	if (rows != r.rows || columns != r.columns)
 	return false; 
