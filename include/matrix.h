@@ -21,7 +21,7 @@ public:
 	int* operator [] (int l);
 	friend ostream &operator << (ostream &cout, const Matrix &temp);
 	friend istream &operator >> (istream &input, Matrix &matr);
-private:
+private: 
 	void swap(Matrix & m1);
 	string s{};
 	int rows{};
