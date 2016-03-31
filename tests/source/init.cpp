@@ -51,8 +51,7 @@ SCENARIO("Matrix: operator ==", "[equal]") {
 SCENARIO("Matrix: operator []", "[addition]") {
 	Matrix A = Matrix(2, 2);
 	A.Get_Matrix("A2x2.txt");
-	int expected = A[3];
-	int unexpected=0;
-	unexpected.get_num("A.txt");
-	REQUIRE(A[3]==expected);
+	Matrix B = Matrix(1,2);
+	B.Get_Matrix("A.txt");
+	REQUIRE(A[3]==B[1]);
 }
