@@ -5,11 +5,11 @@
 #include <iostream>
 ostream &operator << (ostream &os, const Matrix &temp)
 {
-	for (int i = 0; i < temp.n; i++)
+	for (int i = 0; i < temp.rows; i++)
 	{
-		for (int j = 0; j < temp.m; j++)
+		for (int j = 0; j < temp.columns; j++)
 		{
-			os << temp.matrix[i][j] << " ";
+			os << temp._matrix[i][j] << " ";
 		}
 		os << endl;
 	}
@@ -17,11 +17,11 @@ ostream &operator << (ostream &os, const Matrix &temp)
 }
 istream &operator >> (istream &input, Matrix &matr)
 {
-    for (int i = 0; i < matr.n; i++) 
+    for (int i = 0; i < matr.rows; i++) 
     {
-        for (int j = 0; j < matr.m; j++) 
+        for (int j = 0; j < matr.columns; j++) 
         {
-            if (!(input >> matr.matrix[i][j]))
+            if (!(input >> matr._matrix[i][j]))
             {
                 throw "exception in fill matrix";
             }
