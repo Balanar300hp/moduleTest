@@ -20,7 +20,7 @@ Matrix::Matrix(int _rows, int _columns):rows(_rows),columns(_columns)//конс�
 		for (int j = 0; j < columns; j++) _matrix[i][j] = 0;
 	};
 }
-
+ 
 Matrix::Matrix(const Matrix & matrix):rows(matrix.rows),columns(matrix.columns)//конструктор копирования 
 {
 	_matrix = new int*[rows];
