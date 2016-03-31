@@ -18,7 +18,7 @@ SCENARIO("Matrix init", "[init]") {
 			}
 		}
 	}
-} 
+}  
 SCENARIO("Matrix +", "[addition]") {
 	Matrix A = Matrix(2, 2);
 	A.Get_Matrix("A2x2.txt");
