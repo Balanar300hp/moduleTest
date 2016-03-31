@@ -138,4 +138,3 @@ int Matrix::get_columns()// получаем кол-во столбцов
 	return columns;
 }
 
- 
