@@ -41,18 +41,19 @@ Matrix expected = Matrix(2, 2);
 	REQUIRE(result == expected);
 }
 
-SCENARIO("Matrix ==", "[equal]") {
-	Matrix A = Matrix(2, 2);
-	A.Get_Matrix("A2x2.txt");
-	Matrix B = Matrix(2, 2);
-	B.Get_Matrix("A2x2.txt");
-	bool f = (A == B);
-	REQUIRE(f);
+SCENARIO("Matrix operator [](int)", "[row]") 
+{
+	Matrix A(2,2);
+	std::ifstream("A2x2.txt") >> A;
+	int* row = A[1];
+	REQUIRE(row[0]==2);
+	REQUIRE(row[1]==1);
 }
-SCENARIO("Matrix: operator []", "[addition]") {
-	Matrix A = Matrix(2, 2);
-	A.Get_Matrix("A2x2.txt");
-	Matrix B = Matrix(1,2);
-	B.Get_Matrix("A.txt");
-	REQUIRE(A[2]==B[1]);
+SCENARIO("Matrix operator ==", "[comparison]") 
+{
+	Matrix A(2,2);
+	Matrix B(2,2);
+	std::ifstream("A2x2.txt") >> A;
+	std::ifstream("A2x2.txt") >> B;
+	REQUIRE(A==B);
 }
