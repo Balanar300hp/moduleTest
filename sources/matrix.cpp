@@ -29,6 +29,12 @@ istream &operator >> (istream &input, Matrix &matr)
     }
     return input;
 }
+void Matrix::swap(Matrix & m1) {
+	std::swap(m1._matrix, _matrix);
+	std::swap(m1.columns, columns);
+	std::swap(m1.rows, rows);
+
+}
 
 Matrix::Matrix(): rows(0), columns(0),num(0)//конструктор инициализации 
 {
