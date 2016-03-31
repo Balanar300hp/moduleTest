@@ -40,7 +40,7 @@ Matrix::~Matrix() // деструктор
 }
 bool Matrix::operator == (const Matrix &matr) 
 {
-	if (n!=matr.n || m!=matr.m) 
+	if (rows!=matr.rows || columns!=matr.columns) 
 	{
 		return false;
 	}
@@ -49,7 +49,7 @@ bool Matrix::operator == (const Matrix &matr)
 	{
 		for (int j = 0; j < m; j++) 
 		{
-			if (matrix[i][j] != matr.matrix[i][j]) 
+			if (_matrix[i][j] != matr._matrix[i][j]) 
 			{
 				return false;
 			}
@@ -59,9 +59,9 @@ bool Matrix::operator == (const Matrix &matr)
 }
 int* Matrix::operator [] (int index)
 {
-	if (index <= this->n)
+	if (index <= this->rows)
 	{
-		return this->matrix[index];
+		return this->_matrix[index];
 	}
 	else
 	{
