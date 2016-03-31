@@ -1,7 +1,7 @@
 // ConsoleApplication25.cpp: определяет точку входа для консольного приложения.
 //
 
-#include <matrix.h>
+#include <matrix.h> 
 #include <iostream>
 
 Matrix::Matrix(): rows(0), columns(0),num(0)//конструктор инициализации 
