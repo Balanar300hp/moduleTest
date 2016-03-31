@@ -3,6 +3,32 @@
 
 #include <matrix.h> 
 #include <iostream>
+ostream &operator << (ostream &os, const Matrix &temp)
+{
+	for (int i = 0; i < temp.n; i++)
+	{
+		for (int j = 0; j < temp.m; j++)
+		{
+			os << temp.matrix[i][j] << " ";
+		}
+		os << endl;
+	}
+	return os;
+}
+istream &operator >> (istream &input, Matrix &matr)
+{
+    for (int i = 0; i < matr.n; i++) 
+    {
+        for (int j = 0; j < matr.m; j++) 
+        {
+            if (!(input >> matr.matrix[i][j]))
+            {
+                throw "exception in fill matrix";
+            }
+        }
+    }
+    return input;
+}
 
 Matrix::Matrix(): rows(0), columns(0),num(0)//конструктор инициализации 
 {
