@@ -38,18 +38,35 @@ Matrix::~Matrix() // деструктор
 
 	delete[] _matrix;
 }
-bool Matrix::operator ==(const Matrix &r) const
+bool Matrix::operator == (const Matrix &matr) 
 {
-	if (rows != r.rows || columns != r.columns)
-	return false; 
+	if (n!=matr.n || m!=matr.m) 
+	{
+		return false;
+	}
 
-	for (int ix = 0; ix < rows; ix++)
-	for (int jx = 0; jx < columns; jx++)
-	if (_matrix[ix][jx] != r._matrix[ix][jx])
-	return false; 
-
-	return true; 
+	for (int i = 0; i < n; i++) 
+	{
+		for (int j = 0; j < m; j++) 
+		{
+			if (matrix[i][j] != matr.matrix[i][j]) 
+			{
+				return false;
+			}
+		}
+	}
+	return true;
 }
+int* Matrix::operator [] (int index)
+{
+	if (index <= this->n)
+	{
+		return this->matrix[index];
+	}
+	else
+	{
+		return nullptr;
+	}
 
 void Matrix::Get_Matrix(string s) // получаем матрицу из файла
 {
@@ -119,12 +136,6 @@ int Matrix::get_rows() // получаем кол-во строк
 int Matrix::get_columns()// получаем кол-во столбцов 
 {
 	return columns;
-}
-
-int* Matrix::operator [] (int index)// перегружаем оператор [] на входе получили номер строки
-{
-	return this->_matrix[index];
-
 }
 void Matrix::swap(Matrix & m1) {
 	std::swap(m1._matrix, _matrix);
