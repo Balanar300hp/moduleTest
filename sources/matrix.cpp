@@ -10,7 +10,7 @@ ostream &operator << (ostream &os, const Matrix &temp)
 		for (int j = 0; j < temp.columns; j++)
 		{
 			os << temp._matrix[i][j] << " ";
-		}
+		} 
 		os << endl;
 	}
 	return os;
