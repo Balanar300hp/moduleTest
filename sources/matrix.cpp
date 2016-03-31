@@ -45,9 +45,9 @@ bool Matrix::operator == (const Matrix &matr)
 		return false;
 	}
 
-	for (int i = 0; i < n; i++) 
+	for (int i = 0; i < rows; i++) 
 	{
-		for (int j = 0; j < m; j++) 
+		for (int j = 0; j < columns; j++) 
 		{
 			if (_matrix[i][j] != matr._matrix[i][j]) 
 			{
@@ -137,10 +137,5 @@ int Matrix::get_columns()// получаем кол-во столбцов
 {
 	return columns;
 }
-void Matrix::swap(Matrix & m1) {
-	std::swap(m1._matrix, _matrix);
-	std::swap(m1.columns, columns);
-	std::swap(m1.rows, rows);
 
-}
  
