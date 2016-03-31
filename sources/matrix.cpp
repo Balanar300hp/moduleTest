@@ -1,5 +1,5 @@
 // ConsoleApplication25.cpp: определяет точку входа для консольного приложения.
-//
+// 
 
 #include <matrix.h> 
 #include <iostream>
