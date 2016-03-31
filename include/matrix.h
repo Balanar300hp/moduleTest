@@ -19,6 +19,8 @@ public:
 	int get_columns();
  	bool operator == (const Matrix&);
 	int* operator [] (int l);
+	friend ostream &operator << (ostream &cout, const Matrix &temp);
+	friend istream &operator >> (istream &input, Matrix &matr);
 private:
 	void swap(Matrix & m1);
 	string s{};
