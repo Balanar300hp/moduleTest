@@ -51,10 +51,12 @@ SCENARIO("Matrix operator [](int)", "[row]")
 }
 SCENARIO("Matrix operator ==", "[comparison]") 
 {
-	Matrix A(2,2);
-	Matrix B(2,2);
+		Matrix A = Matrix(2, 2);
+	A.Get_Matrix("A2x2.txt");
+	Matrix B = Matrix(2, 2);
+	B.Get_Matrix("B2x2.txt");
 	std::ifstream("A2x2.txt") >> A;
-	std::ifstream("A2x2.txt") >> B;
+	std::ifstream("B2x2.txt") >> B;
 	REQUIRE(A==B);
 }
  
