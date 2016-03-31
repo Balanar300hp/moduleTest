@@ -67,7 +67,7 @@ int* Matrix::operator [] (int index)
 	{
 		return nullptr;
 	}
-
+}
 void Matrix::Get_Matrix(string s) // получаем матрицу из файла
 {
 	ifstream fin(s); // сконструируем объект класса ifstream для ввода из файла
