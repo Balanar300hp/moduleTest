@@ -57,3 +57,4 @@ SCENARIO("Matrix operator ==", "[comparison]")
 	std::ifstream("A2x2.txt") >> B;
 	REQUIRE(A==B);
 }
+ 
