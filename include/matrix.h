@@ -26,14 +26,14 @@ public:
 	Matrix(int _rows, int _columns);
 	Matrix(const Matrix &matrix);
 	~Matrix();
-	void Get_Matrix(string s);
+	bool Get_Matrix(string s);
 	void Cout_Matrix();
 	Matrix &operator=(const Matrix &matrix);
 	Matrix operator +(const Matrix& firstMatrix);
 	Matrix operator *(int num);    
 	T* operator [](int i);
-	int get_rows();
-	int get_columns();
+unsigned int get_rows() const;
+unsigned int get_columns() const;
 	friend std::ostream & operator<< <>(std::ostream & output, const Matrix & matrix);	
 	friend std::istream & operator>> <>(std::istream & input, Matrix<T> & matrix);	
 private:
