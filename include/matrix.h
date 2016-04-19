@@ -29,5 +29,6 @@ private:
 	int columns{};
 	int **_matrix{};
 };
+#include "matrix.cpp"
 #endif
  
