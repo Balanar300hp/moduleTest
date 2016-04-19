@@ -59,3 +59,60 @@ SCENARIO("Matrix operator ==", "[comparison]")
 	REQUIRE(A==A);
 }
  
+ SCENARIO("MatrixException: init matrix", "[init]") {
+	bool flag = false;
+	CMatrix<int> A;
+	try {
+		A.readFromFile("11111");
+	}
+	catch (initException &e) {
+		flag = true;
+	}
+	REQUIRE(flag);
+}
+
+SCENARIO("MatrixException: empty matrix", "[empty]") {
+	bool flag = false;
+	CMatrix<int> A;
+	try {
+		cout << A;
+	}
+	catch (emptyException &e) {
+		flag = true;
+	}
+	REQUIRE(flag);
+}
+
+SCENARIO("MatrixException: index error", "[index]") {
+	bool flag = false;
+	CMatrix<int> A(2, 2);
+	try {
+		int* a = A[3];
+	}
+	catch (indexException &e) {
+		flag = true;
+	}
+	REQUIRE(flag);
+}
+
+SCENARIO("MatrixException: incompatible matrixes", "[size]") {
+	bool flag = false;
+	CMatrix<int> A(2, 2), B(3, 3);
+	try {
+		A + B;
+	}
+	catch (incompatibleException &e) {
+		flag = true;
+	}
+	REQUIRE(flag);
+}
+
+SCENARIO("Matrix: operator + for double", "[addition]") {
+	CMatrix<double> A, B, expected;
+	A.readFromFile("A2x2.txt");
+	B.readFromFile("B2x2.txt");
+	expected.readFromFile("A+B2x2.txt");
+
+	CMatrix<double> result = A + B;
+	REQUIRE(result == expected);
+}
