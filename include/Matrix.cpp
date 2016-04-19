@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 #include <fstream> 
-using namespace std;
+using namespace std; 
 
 #ifndef MATR_CPP
 #define MATR_CPP
