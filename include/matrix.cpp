@@ -183,7 +183,7 @@ std::ostream & operator <<(std::ostream & os, const Matrix<T> & x) {
 	}
 
 	return os;
-}
+} 
 
 template <typename T>
 std::istream & operator >>(std::istream & input, Matrix<T> & matrix) {
