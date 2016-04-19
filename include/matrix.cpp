@@ -170,14 +170,14 @@ T Matrix<T>::get_columns() // получаем кол-во столбцов
 	return columns;
 }
 template <typename T>
-std::ostream & operator <<(std::ostream & os, const CMatrix<T> & x) {
-	if (x.m_columns == 0 || x.m_rows == 0 || x.matrix == nullptr) {
+std::ostream & operator <<(std::ostream & os, const Matrix<T> & x) {
+	if (x.columns == 0 || x.rows == 0 || x.matrix == nullptr) {
 		throw emptyException();
 	}
-	for (int i = 0; i < x.m_rows; ++i) {
-		for (int j = 0; j < x.m_columns; ++j) {
+	for (int i = 0; i < x.rows; ++i) {
+		for (int j = 0; j < x.columns; ++j) {
 			os.width(4);
-			os << x.matrix[i][j];
+			os << x._matrix[i][j];
 		}
 		os << std::endl;
 	}
@@ -186,11 +186,11 @@ std::ostream & operator <<(std::ostream & os, const CMatrix<T> & x) {
 }
 
 template <typename T>
-std::istream & operator >>(std::istream & input, CMatrix<T> & matrix) {
-	for (int i = 0; i < matrix.m_rows; ++i) {
-		for (int j = 0; j < matrix.m_columns; ++j) {
+std::istream & operator >>(std::istream & input, Matrix<T> & matrix) {
+	for (int i = 0; i < matrix.rows; ++i) {
+		for (int j = 0; j < matrix.columns; ++j) {
 			try {
-				if (!(input >> matrix.matrix[i][j])) {
+				if (!(input >> matrix._matrix[i][j])) {
 					throw initException();
 				}
 			}
