@@ -48,6 +48,6 @@ public:
 };
 
 
-#include "matrix.cpp"
+#include "Matrix.cpp"
 
 #endif
