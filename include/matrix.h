@@ -8,10 +8,10 @@ template <typename T>
 class Matrix;
 
 template <class T>
-ostream & operator<<(ostream & output, const CMatrix<T> &);
+ostream & operator<<(ostream & output, const Matrix<T> &);
 
 template <class T>
-istream & operator>>(istream & input, CMatrix<T> &);
+istream & operator>>(istream & input, Matrix<T> &);
 
 template <typename T>
 class Matrix {
