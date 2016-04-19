@@ -2,7 +2,7 @@
 #include "matrix.h"
 #ifndef MATR_CPP
 #define MATR_CPP 
-
+ 
 template <typename T>
 Matrix<T>::Matrix(int _rows, int _columns) :_matrix(new T *[_rows]),rows(_rows), columns(_columns) //конструктор с параметрами 
 {
