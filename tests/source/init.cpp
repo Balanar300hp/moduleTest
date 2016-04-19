@@ -1,5 +1,4 @@
-#include "stdafx.h"
-#include "Matrix.h"
+#include "matrix.h"
 #include <catch.hpp>
 
 SCENARIO("Matrix init", "[init]") {
