@@ -151,14 +151,12 @@ Matrix<T> Matrix<T>::operator *(const Matrix<T> &m) {
 }
 
 template <typename T>
-T Matrix<T>::get_rows() // получаем кол-во строк
-{
+unsigned int Matrix<T>::get_rows() const {
 	return rows;
 }
 
 template <typename T>
-T Matrix<T>::get_columns() // получаем кол-во столбцов 
-{
+unsigned int Matrix<T>::get_columns() const {
 	return columns;
 }
 template <typename T>
