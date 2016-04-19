@@ -112,7 +112,7 @@ SCENARIO("Matrix: readFromFile()", "[filling]") {
 }
 
 SCENARIO("Matrix operator >>", "[fill]") {
-	std::ifstream input("A2x2.txt");
+	std::ifstream input("A2.txt");
 	CMatrix<int> A(2, 2);
 	REQUIRE(input >> A);
 	REQUIRE(A[0][0] == 1);
@@ -122,9 +122,9 @@ SCENARIO("Matrix operator >>", "[fill]") {
 }
 
 SCENARIO("Matrix operator <<", "[print]") {
-	std::ifstream input("A2x2.txt");
-	fstream out; out.open("A2x2.txt");
-	ifstream secondInput("A2x2.txt");
+	std::ifstream input("A2.txt");
+	fstream out; out.open("A2.txt");
+	ifstream secondInput("A2.txt");
 	CMatrix<int> A(2, 2);
 	input >> A;
 	REQUIRE(out << A);
