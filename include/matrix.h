@@ -28,8 +28,8 @@ public:
 	T* operator [](int i);
 	int get_rows();
 	int get_columns();
-	friend std::ostream & operator<< <>(std::ostream & output, const CMatrix & matrix);	
-	friend std::istream & operator>> <>(std::istream & input, CMatrix<T> & matrix);	
+	friend std::ostream & operator<< <>(std::ostream & output, const Matrix & matrix);	
+	friend std::istream & operator>> <>(std::istream & input, Matrix<T> & matrix);	
 private:
 	void swap(Matrix & m1);
 	string s{};
