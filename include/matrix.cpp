@@ -1,5 +1,3 @@
-#include "stdafx.h"
-#include "Matrix.h" 
 #include <iostream>
 
 #ifndef MATR_CPP
