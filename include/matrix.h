@@ -3,7 +3,10 @@
 #define MATR_H
 #include <fstream> 
 #include <string> 
+#include <cstring>
+#include "MatrixException.h"
 using namespace std;
+
 template <typename T>
 class Matrix;
  
