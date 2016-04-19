@@ -18,10 +18,8 @@ Matrix<T>::Matrix() : rows(0), columns(0), num(0) //конструктор ин�
 }
 
 template <typename T>
-Matrix<T>::Matrix(int _rows, int _columns) :rows(_rows), columns(_columns) //конструктор с параметрами 
+Matrix<T>::Matrix(int _rows, int _columns) :_matrix(new T *[_rows]),rows(_rows), columns(_columns) //конструктор с параметрами 
 {
-	_matrix = new T*[rows];
-
 	for (int i = 0; i < rows; i++)
 		_matrix[i] = new T[columns];
 	for (int i = 0; i < rows; i++) { //  обнуление массива
@@ -30,16 +28,24 @@ Matrix<T>::Matrix(int _rows, int _columns) :rows(_rows), columns(_columns) //к�
 	}
 }
 template <typename T>
-Matrix<T>::Matrix(const Matrix<T> & matrix) :rows(matrix.rows), columns(matrix.columns)//конструктор копирования 
+Matrix<T>::Matrix(const Matrix<T> & matrix) :	_matrix(new T*[matrix.rows]),rows(matrix.rows), columns(matrix.columns)//конструктор копирования 
 {
-	_matrix = new T*[rows];
+
 	for (int i = 0; i < rows; ++i) {
 		_matrix[i] = new T[columns];
 		for (int j = 0; j < columns; ++j)
 			_matrix[i][j] = matrix._matrix[i][j];
 	}
 }
-
+template <typename T>
+Matrix<T>::Matrix(T **matr, unsigned int _rows, unsigned int _columns) : _matrix(new T *[_m_rows]), rows(_rows), columns(_columns) {
+	for (int i = 0; i < rows; i++) {
+		matrix[i] = new T[columns];
+		for (int j = 0; j < molumns; j++) {
+			_matrix[i][j] = matr[i][j];
+		}
+	}
+}
 template <typename T>
 Matrix<T>::~Matrix() // деструктор
 {
