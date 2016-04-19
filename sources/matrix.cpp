@@ -1,4 +1,4 @@
-#include "stdafx.h"
+
 #include "matrix.h" 
 #include <iostream>
 
