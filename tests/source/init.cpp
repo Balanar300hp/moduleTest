@@ -38,20 +38,12 @@ SCENARIO("Matrix: operator -", "[subtraction]") {
 	REQUIRE(result == expected);
 }
 
-SCENARIO("Matrix: operator *(matix, number)", "[multiplication]") {
-	CMatrix<int> A, expected;
-	A.readFromFile("A2x2.txt");
-	expected.readFromFile("A2x2mult2.txt");
-
-	CMatrix<int> result = A * 2;
-	REQUIRE(result == expected);
-}
 
 SCENARIO("Matrix: operator *(matix, matrix)", "[multiplication]") {
 	CMatrix<int> A, B, expected;
 	A.readFromFile("A2x2.txt");
 	B.readFromFile("B2x2.txt");
-	expected.readFromFile("AxB.txt");
+	expected.readFromFile("A*B.txt");
 
 	CMatrix<int> result = A * B;
 	REQUIRE(result == expected);
@@ -120,19 +112,19 @@ SCENARIO("Matrix: readFromFile()", "[filling]") {
 }
 
 SCENARIO("Matrix operator >>", "[fill]") {
-	std::ifstream input("A2x2op.txt");
+	std::ifstream input("A2x2.txt");
 	CMatrix<int> A(2, 2);
 	REQUIRE(input >> A);
-	REQUIRE(A[0][0] == 1);
-	REQUIRE(A[0][1] == 2);
-	REQUIRE(A[1][0] == 3);
-	REQUIRE(A[1][1] == 4);
+	REQUIRE(A[0][0] == 2);
+	REQUIRE(A[0][1] == 3);
+	REQUIRE(A[1][0] == 2);
+	REQUIRE(A[1][1] == 1);
 }
 
 SCENARIO("Matrix operator <<", "[print]") {
-	std::ifstream input("A2x2op.txt");
-	fstream out; out.open("A2x2out.txt");
-	ifstream secondInput("A2x2out.txt");
+	std::ifstream input("A2x2.txt");
+	fstream out; out.open("A2x2.txt");
+	ifstream secondInput("A2x2.txt");
 	CMatrix<int> A(2, 2);
 	input >> A;
 	REQUIRE(out << A);
@@ -140,10 +132,10 @@ SCENARIO("Matrix operator <<", "[print]") {
 	out.close();
 	input.close();
 	secondInput.close();
-	REQUIRE(A[0][0] == 1);
-	REQUIRE(A[0][1] == 2);
-	REQUIRE(A[1][0] == 3);
-	REQUIRE(A[1][1] == 4);
+	REQUIRE(A[0][0] == 2);
+	REQUIRE(A[0][1] == 3);
+	REQUIRE(A[1][0] == 2);
+	REQUIRE(A[1][1] == 1);
 }
 
 SCENARIO("MatrixException: init matrix", "[init]") {
