@@ -1,9 +1,12 @@
 #pragma once
 #ifndef MATR_H
 #define MATR_H
-#include <fstream> 
-#include <string> 
 #include <cstring>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
+#include <stdlib.h>
 #include "MatrixException.h"
 using namespace std;
 
