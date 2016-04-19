@@ -28,15 +28,15 @@ SCENARIO("Matrix: operator +", "[addition]") {
 	REQUIRE(result == expected);
 }
 
-SCENARIO("Matrix: operator -", "[subtraction]") {
-	CMatrix<int> A, B, expected;
-	A.readFromFile("A2x2.txt");
-	B.readFromFile("B2x2.txt");
-	expected.readFromFile("A-B.txt");
 
-	CMatrix<int> result = A - B;
-	REQUIRE(result == expected);
-}
+
+
+
+
+
+
+
+
 
 
 SCENARIO("Matrix: operator *(matix, matrix)", "[multiplication]") {
