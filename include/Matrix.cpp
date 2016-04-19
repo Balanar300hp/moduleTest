@@ -1,4 +1,4 @@
-#include "Matrix.h"
+#include "matrix.h"
 #include "MatrixException.h"
 #include <string>
 #include <iostream>
