@@ -1,9 +1,19 @@
-#ifndef Matrix_h
-#define Matrix_h
 #pragma once
+#ifndef MATR_H
+#define MATR_H
 #include <fstream> 
 #include <string> 
 using namespace std;
+template <typename T>
+class Matrix;
+
+template <class T>
+ostream & operator<<(ostream & output, const CMatrix<T> &);
+
+template <class T>
+istream & operator>>(istream & input, CMatrix<T> &);
+
+template <typename T>
 class Matrix {
 public:
 	Matrix();
@@ -14,21 +24,17 @@ public:
 	void Cout_Matrix();
 	Matrix &operator=(const Matrix &matrix);
 	Matrix operator +(const Matrix& firstMatrix);
-	Matrix operator *(const Matrix &m);
+	Matrix operator *(int num);    
+	T* operator [](int i);
 	int get_rows();
 	int get_columns();
- 	bool operator == (const Matrix&);
-	int* operator [] (int l);
-	friend ostream &operator << (ostream &cout, const Matrix &temp);
-	friend istream &operator >> (istream &input, Matrix &matr);
-private: 
+	friend ostream & operator<< <>(std::ostream & output, const Matrix<T> & matrix);
+	friend istream & operator>> <>(std::istream & input, Matrix<T> & matrix);
+private:
 	void swap(Matrix & m1);
 	string s{};
 	int rows{};
-	int num {};
 	int columns{};
 	int **_matrix{};
 };
-#include "matrix.cpp"
 #endif
- 
