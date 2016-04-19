@@ -19,7 +19,7 @@ istream & operator>>(istream & input, Matrix<T> &);
 template <typename T>
 class Matrix {
 public:
-	Matrix();
+	Matrix() : rows(0), columns(0), _matrix(nullptr) {};	
 	Matrix(int _rows, int _columns);
 	Matrix(const Matrix &matrix);
 	~Matrix();
@@ -35,9 +35,9 @@ public:
 	friend std::istream & operator>> <>(std::istream & input, Matrix<T> & matrix);	
 private:
 	void swap(Matrix & m1);
-	string s{};
-	int rows{};
-	int columns{};
-	T **_matrix{};
+	string s;
+	int rows;
+	int columns;
+	T **_matrix;
 };
 #endif
