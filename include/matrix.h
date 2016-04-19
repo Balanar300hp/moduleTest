@@ -35,6 +35,6 @@ private:
 	string s{};
 	int rows{};
 	int columns{};
-	int **_matrix{};
+	T **_matrix{};
 };
 #endif
