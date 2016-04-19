@@ -6,7 +6,7 @@
 using namespace std;
 template <typename T>
 class Matrix;
-
+ 
 template <class T>
 ostream & operator<<(ostream & output, const Matrix<T> &);
 
