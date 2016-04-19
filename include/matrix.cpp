@@ -4,20 +4,6 @@
 #define MATR_CPP 
 
 template <typename T>
-void CMatrix<T>::swap(CMatrix & x) {
-	std::swap(x._matrix, _matrix);
-	std::swap(x.columns, columns);
-	std::swap(x.rows, rows);
-}
-
-template <typename T>
-Matrix<T>::Matrix() : rows(0), columns(0), num(0) //конструктор инициализации 
-{
-	_matrix = new T*[0];
-	_matrix[0] = new T[0];
-}
-
-template <typename T>
 Matrix<T>::Matrix(int _rows, int _columns) :_matrix(new T *[_rows]),rows(_rows), columns(_columns) //конструктор с параметрами 
 {
 	for (int i = 0; i < rows; i++)
@@ -207,5 +193,11 @@ std::istream & operator >>(std::istream & input, Matrix<T> & matrix) {
 	}
 
 	return input;
+}
+template <typename T>
+void CMatrix<T>::swap(CMatrix & x) {
+	std::swap(x._matrix, _matrix);
+	std::swap(x.columns, columns);
+	std::swap(x.rows, rows);
 }
 #endif
