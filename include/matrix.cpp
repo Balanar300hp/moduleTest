@@ -1,39 +1,7 @@
 #include <iostream>
-
+#include "matrix.h"
 #ifndef MATR_CPP
 #define MATR_CPP
-
- 
-template <typename T>
-ostream &operator << (ostream &os, const Matrix<T> &temp) {
-	if (temp.columns == 0 || temp.rows == 0 ||temp._matrix == nullptr) {
-		throw "Empty matrix\n";
-	}
-	for (int i = 0; i < temp.rows; i++) {
-		for (int j = 0; j < temp.columns; j++) {
-			os << temp._matrix[i][j] << " ";
-		}
-		os << endl;
-	}
-	return os;
-}
-
-template <typename T>
-:istream &operator >> (istream &input, Matrix<T> &matr) {
-	for (int i = 0; i < matr.rows; i++) {
-		for (int j = 0; j < matr.columns; j++) {
-			try {
-				if (!(input >> matrix.matrix[i][j])) {
-					throw "Error in input stream\n";
-				}
-			}
-			catch (...) {
-				throw "Ooops\n";
-			}
-		}
-	}
-	return input;
-}
 
 template <typename T>
 void Matrix::swap(Matrix & m1) {
@@ -201,5 +169,37 @@ T Matrix<T>::get_columns() // получаем кол-во столбцов
 {
 	return columns;
 }
+template <typename T>
+std::ostream & operator <<(std::ostream & os, const CMatrix<T> & x) {
+	if (x.m_columns == 0 || x.m_rows == 0 || x.matrix == nullptr) {
+		throw emptyException();
+	}
+	for (int i = 0; i < x.m_rows; ++i) {
+		for (int j = 0; j < x.m_columns; ++j) {
+			os.width(4);
+			os << x.matrix[i][j];
+		}
+		os << std::endl;
+	}
 
+	return os;
+}
+
+template <typename T>
+std::istream & operator >>(std::istream & input, CMatrix<T> & matrix) {
+	for (int i = 0; i < matrix.m_rows; ++i) {
+		for (int j = 0; j < matrix.m_columns; ++j) {
+			try {
+				if (!(input >> matrix.matrix[i][j])) {
+					throw initException();
+				}
+			}
+			catch (...) {
+				throw initException();
+			}
+		}
+	}
+
+	return input;
+}
 #endif
