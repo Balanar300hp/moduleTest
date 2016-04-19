@@ -19,7 +19,7 @@ std::ostream & operator<<(std::ostream & output, const Matrix<T> &);
 template <class T>
 std::istream & operator>>(std::istream & input, Matrix<T> &);
 
-template <class T>
+template <class T> 
 class Matrix {
 public:
 	Matrix() : rows(0), columns(0), _matrix(nullptr) {};	
