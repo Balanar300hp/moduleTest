@@ -11,10 +11,10 @@ template <typename T>
 class Matrix;
  
 template <class T>
-ostream & operator<<(ostream & output, const Matrix<T> &);
+std::ostream & operator<<(std::ostream & output, const Matrix<T> &);
 
 template <class T>
-istream & operator>>(istream & input, Matrix<T> &);
+std::istream & operator>>(std::istream & input, Matrix<T> &);
 
 template <typename T>
 class Matrix {
