@@ -92,10 +92,10 @@ SCENARIO("Matrix: readFromFile()", "[filling]") {
 	for (int i = 0; i < 2; i++) {
 		a[i] = new int[2];
 	}
-	a[0][0] = 2;
-	a[0][1] = 3;
-	a[1][0] = 2;
-	a[1][1] = 1;
+	a[0][0] = 1;
+	a[0][1] = 2;
+	a[1][0] = 3;
+	a[1][1] = 4;
 	A.readFromFile("A2x2.txt");
 
 	bool flag = true;
@@ -115,10 +115,10 @@ SCENARIO("Matrix operator >>", "[fill]") {
 	std::ifstream input("A2x2.txt");
 	CMatrix<int> A(2, 2);
 	REQUIRE(input >> A);
-	REQUIRE(A[0][0] == 2);
-	REQUIRE(A[0][1] == 3);
-	REQUIRE(A[1][0] == 2);
-	REQUIRE(A[1][1] == 1);
+	REQUIRE(A[0][0] == 1);
+	REQUIRE(A[0][1] == 2);
+	REQUIRE(A[1][0] == 3);
+	REQUIRE(A[1][1] == 4);
 }
 
 SCENARIO("Matrix operator <<", "[print]") {
@@ -132,10 +132,10 @@ SCENARIO("Matrix operator <<", "[print]") {
 	out.close();
 	input.close();
 	secondInput.close();
-	REQUIRE(A[0][0] == 2);
-	REQUIRE(A[0][1] == 3);
-	REQUIRE(A[1][0] == 2);
-	REQUIRE(A[1][1] == 1);
+	REQUIRE(A[0][0] == 1);
+	REQUIRE(A[0][1] == 2);
+	REQUIRE(A[1][0] == 3);
+	REQUIRE(A[1][1] == 4);
 }
 
 SCENARIO("MatrixException: init matrix", "[init]") {
