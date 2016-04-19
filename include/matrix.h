@@ -13,10 +13,10 @@ using namespace std;
 template <typename T>
 class Matrix;
  
-template <class T>
+template <typename T>
 std::ostream & operator<<(std::ostream & output, const Matrix<T> &);
 
-template <class T>
+template <typename T>
 std::istream & operator>>(std::istream & input, Matrix<T> &);
 
 template <typename T>
