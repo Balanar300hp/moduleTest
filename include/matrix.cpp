@@ -47,7 +47,7 @@ Matrix<T>::~Matrix() // деструктор
 		delete[] _matrix[i];
 
 	delete[] _matrix;
-}
+} 
 
 template <typename T>
 bool Matrix<T>::operator == (const Matrix<T> &matr) {
