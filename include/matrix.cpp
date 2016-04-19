@@ -4,10 +4,10 @@
 #define MATR_CPP
 
 template <typename T>
-void Matrix::swap(Matrix & m1) {
-	std::swap(m1._matrix, _matrix);
-	std::swap(m1.columns, columns);
-	std::swap(m1.rows, rows);
+void CMatrix<T>::swap(CMatrix & x) {
+	std::swap(x._matrix, _matrix);
+	std::swap(x.columns, columns);
+	std::swap(x.rows, rows);
 }
 
 template <typename T>
