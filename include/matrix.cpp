@@ -1,7 +1,7 @@
 #include <iostream>
 #include "matrix.h"
 #ifndef MATR_CPP
-#define MATR_CPP
+#define MATR_CPP 
 
 template <typename T>
 void CMatrix<T>::swap(CMatrix & x) {
