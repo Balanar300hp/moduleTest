@@ -45,7 +45,7 @@ bool Matrix<T>::readFromFile(char* path) {
 		stream.open(path);
 		if (stream.is_open()) {
 			std::string str;
-             std::getline(h, str);
+             std::getline(stream, str);
 		if (stream.eof()&& str.empty()){
 			  cout<<"Error file"<<endl;
 			
