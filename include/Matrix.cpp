@@ -43,7 +43,7 @@ bool Matrix<T>::readFromFile(char* path) {
 	ifstream stream;
 	
 		stream.open(path);
-		
+		if (stream.is_open()) {
 
 			unsigned int rows, columns;
 
