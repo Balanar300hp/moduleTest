@@ -44,10 +44,7 @@ bool Matrix<T>::readFromFile(char* path) {
 	
 		stream.open(path);
 		if (stream.is_open()) {
-			long file_size;
-				stream.seekg(0, ios::end);
-			file_size = stream.tellg();
-		if (file_size == 0){
+		if (stream.eof()){
 			  cout<<"Error file<<endl;stream.close();}
 
 			unsigned int rows, columns;
