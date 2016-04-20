@@ -85,7 +85,7 @@ unsigned int Matrix<T>::columnsNumber() const {
 template <typename T>
 Matrix<T> & Matrix<T>::operator =(const Matrix<T>& m2) {
 	if (this != &m2) {
-		(CMatrix(m2)).swap(*this);
+		(Matrix(m2)).swap(*this);
 	}
 	return *this;
 }
@@ -219,11 +219,11 @@ template <typename T>
 std::istream & operator >>(std::istream & input, Matrix<T> & matrix) {
 	for (int i = 0; i < matrix.rows; ++i) {
 		for (int j = 0; j < matrix.columns; ++j) {
-			try {
+		
 				if (!(input >> matrix.matrix[i][j])) {
 					throw initException();
 				}
-			}
+			
 			
 		}
 	}
