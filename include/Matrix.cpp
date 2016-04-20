@@ -43,13 +43,7 @@ bool Matrix<T>::readFromFile(char* path) {
 	ifstream stream;
 	
 		stream.open(path);
-		if (stream.is_open()) {
-			std::string str;
-             std::getline(stream, str);
-		if (stream.eof()&& str.empty()){
-			  cout<<"Error file"<<endl;
-			
-		}else{
+		
 
 			unsigned int rows, columns;
 
@@ -75,7 +69,7 @@ bool Matrix<T>::readFromFile(char* path) {
 
 	return false;
 }
-}
+
 
 template <typename T>
 unsigned int Matrix<T>::rowsNumber() const {
