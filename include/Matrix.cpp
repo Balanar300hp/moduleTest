@@ -44,8 +44,12 @@ bool Matrix<T>::readFromFile(char* path) {
 	
 		stream.open(path);
 		if (stream.is_open()) {
-		if (!stream.eof()){
-			  cout<<"Error file"<<endl;stream.close();}
+			std::string str;
+             std::getline(h, str);
+		if (stream.eof()&& str.empty()){
+			  cout<<"Error file"<<endl;
+			
+		}else{
 
 			unsigned int rows, columns;
 
@@ -70,6 +74,7 @@ bool Matrix<T>::readFromFile(char* path) {
 	}
 
 	return false;
+}
 }
 
 template <typename T>
