@@ -41,10 +41,15 @@ Matrix<T>::Matrix(T **matr, unsigned int _rows, unsigned int _columns) : matrix(
 template <typename T>
 bool Matrix<T>::readFromFile(char* path) {
 	ifstream stream;
-	try {
+	
 		stream.open(path);
-
 		if (stream.is_open()) {
+			long file_size;
+				stream.seekg(0, ios::end);
+			file_size = stream.tellg();
+		if (file_size == 0)
+			  cout<<"Error file<<endl;stream.close();
+
 			unsigned int rows, columns;
 
 			stream >> rows >> columns;
@@ -55,7 +60,7 @@ bool Matrix<T>::readFromFile(char* path) {
 				for (int j = 0; j < columns; j++) {
 					stream >> mass[i][j];
 				}
-			}
+			
 
 			this->matrix = mass;
 			this->rows = rows;
