@@ -48,6 +48,7 @@ bool Matrix<T>::readFromFile(char* path) {
 			unsigned int rows, columns;
 
 			stream >> rows >> columns;
+			
 			T **mass = new T*[rows];
 			for (int i = 0; i < rows; i++) {
 				mass[i] = new T[columns];
@@ -63,9 +64,7 @@ bool Matrix<T>::readFromFile(char* path) {
 
 			return true;
 		}
-		else {
-			throw initException();
-		}
+		
 	}
 	catch (const std::exception& e) {
 		cout << e.what() << '\n';
@@ -226,9 +225,7 @@ std::istream & operator >>(std::istream & input, Matrix<T> & matrix) {
 					throw initException();
 				}
 			}
-			catch (...) {
-				throw initException();
-			}
+			
 		}
 	}
 
