@@ -30,7 +30,7 @@ Matrix<T>::Matrix(const Matrix & x) : matrix(new T *[x.rows]), columns(x.columns
 
 template <typename T>
 Matrix<T>::Matrix(T **matr, unsigned int _rows, unsigned int _columns) : matrix(new T *[_rows]), rows(_rows), columns(_columns) {
-	for (int i = 0; i < m_rows; i++) {
+	for (int i = 0; i < rows; i++) {
 		matrix[i] = new T[columns];
 		for (int j = 0; j < columns; j++) {
 			matrix[i][j] = matr[i][j];
@@ -76,12 +76,12 @@ bool Matrix<T>::readFromFile(char* path) {
 
 template <typename T>
 unsigned int Matrix<T>::rowsNumber() const {
-	return m_rows;
+	return rows;
 }
 
 template <typename T>
 unsigned int CMatrix<T>::columnsNumber() const {
-	return m_columns;
+	return columns;
 }
 
 template <typename T>
@@ -107,7 +107,7 @@ Matrix<T> Matrix<T>::operator +(const Matrix<T> &m2) {
 }
 
 template <typename T>
-Matrix<T> CMatrix<T>::operator -(const Matrix<T> &m2) {
+Matrix<T> Matrix<T>::operator -(const Matrix<T> &m2) {
 	if (m2.columns != this->columns || m2.rows != this->rows) {
 		throw incompatibleException();
 	}
@@ -139,7 +139,7 @@ Matrix<T> Matrix<T>::operator *(const Matrix &m2) {
 	if (this->columns != m2.rows) {
 		throw incompatibleException();
 	}
-	CMatrix temp(this->rows, m2.columns);
+	Matrix temp(this->rows, m2.columns);
 
 	T t = 0;
 
@@ -156,7 +156,7 @@ Matrix<T> Matrix<T>::operator *(const Matrix &m2) {
 }
 
 template <typename T>
-bool Matrix<T>::operator ==(const Catrix & m2) {
+bool Matrix<T>::operator ==(const Matrix & m2) {
 	if (rows != m2.rows || columns != m2.columns) {
 		return false;
 	}
@@ -194,7 +194,7 @@ void Matrix<T>::swap(Matrix & x) {
 template <typename T>
 Matrix<T>::~Matrix() {
 	if (matrix != nullptr) {
-		for (int i = 0; i < m_rows; i++) {
+		for (int i = 0; i < rows; i++) {
 			delete[] matrix[i];
 		}
 		delete[] matrix;
