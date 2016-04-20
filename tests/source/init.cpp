@@ -164,7 +164,7 @@ SCENARIO("MatrixException: empty matrix", "[empty]") {
 
 SCENARIO("MatrixException: index error", "[index]") {
 	bool flag = false;
-	CMatrix<int> A(2, 2);
+	Matrix<int> A(2, 2);
 	try {
 		int* a = A[3];
 	}
