@@ -80,7 +80,7 @@ unsigned int Matrix<T>::rowsNumber() const {
 }
 
 template <typename T>
-unsigned int CMatrix<T>::columnsNumber() const {
+unsigned int Matrix<T>::columnsNumber() const {
 	return columns;
 }
 
