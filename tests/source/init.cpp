@@ -6,8 +6,8 @@ SCENARIO("Matrix init", "[init]") {
 		auto rows = 3;
 		auto columns = 3;
 		WHEN("Create instansce of Matrix") {
-			CMatrix<int> m(rows, columns);
-			CMatrix<int> a;
+			Matrix<int> m(rows, columns);
+			Matrix<int> a;
 			THEN("The number of rows and columns must be preserved") {
 				REQUIRE(m.rowsNumber() == rows);
 				REQUIRE(m.columnsNumber() == columns);
@@ -19,12 +19,12 @@ SCENARIO("Matrix init", "[init]") {
 }
 
 SCENARIO("Matrix: operator +", "[addition]") {
-	CMatrix<int> A, B, expected;
+	Matrix<int> A, B, expected;
 	A.readFromFile("A2x2.txt");
 	B.readFromFile("B2x2.txt");
 	expected.readFromFile("A+B.txt");
 
-	CMatrix<int> result = A + B;
+	Matrix<int> result = A + B;
 	REQUIRE(result == expected);
 }
 
@@ -40,17 +40,17 @@ SCENARIO("Matrix: operator +", "[addition]") {
 
 
 SCENARIO("Matrix: operator *(matix, matrix)", "[multiplication]") {
-	CMatrix<int> A, B, expected;
+	Matrix<int> A, B, expected;
 	A.readFromFile("A2x2.txt");
 	B.readFromFile("B2x2.txt");
 	expected.readFromFile("A*B.txt");
 
-	CMatrix<int> result = A * B;
+	Matrix<int> result = A * B;
 	REQUIRE(result == expected);
 }
 
 SCENARIO("Matrix: operator [](index)", "[get row]") {
-	CMatrix<int> A;
+	Matrix<int> A;
 	int* a = new int[2]; a[0] = 1; a[1] = 2;
 	A.readFromFile("A2x2.txt");
 
@@ -65,7 +65,7 @@ SCENARIO("Matrix: operator [](index)", "[get row]") {
 }
 
 SCENARIO("Matrix: operator ==", "[equal]") {
-	CMatrix<int> A, B;
+	Matrix<int> A, B;
 	A.readFromFile("A2x2.txt");
 	B.readFromFile("A2x2.txt");
 	bool flag = (A == B);
@@ -74,19 +74,19 @@ SCENARIO("Matrix: operator ==", "[equal]") {
 }
 
 SCENARIO("Matrix: rowsNumber()", "[rows number]") {
-	CMatrix<int> A(3, 3);
+	Matrix<int> A(3, 3);
 
 	REQUIRE(A.rowsNumber() == 3);
 }
 
 SCENARIO("Matrix: columnsNumber()", "[columns number]") {
-	CMatrix<int> A(3, 3);
+	Matrix<int> A(3, 3);
 
 	REQUIRE(A.columnsNumber() == 3);
 }
 
 SCENARIO("Matrix: readFromFile()", "[filling]") {
-	CMatrix<int> A;
+	Matrix<int> A;
 	int** a = new int*[2];
 	int *row;
 	for (int i = 0; i < 2; i++) {
@@ -113,7 +113,7 @@ SCENARIO("Matrix: readFromFile()", "[filling]") {
 
 SCENARIO("Matrix operator >>", "[fill]") {
 	std::ifstream input("A2.txt");
-	CMatrix<int> A(2, 2);
+	Matrix<int> A(2, 2);
 	REQUIRE(input >> A);
 	REQUIRE(A[0][0] == 1);
 	REQUIRE(A[0][1] == 2);
@@ -125,7 +125,7 @@ SCENARIO("Matrix operator <<", "[print]") {
 	std::ifstream input("A2.txt");
 	fstream out; out.open("A2.txt");
 	ifstream secondInput("A2.txt");
-	CMatrix<int> A(2, 2);
+	Matrix<int> A(2, 2);
 	input >> A;
 	REQUIRE(out << A);
 	REQUIRE(secondInput >> A);
@@ -140,7 +140,7 @@ SCENARIO("Matrix operator <<", "[print]") {
 
 SCENARIO("MatrixException: init matrix", "[init]") {
 	bool flag = false;
-	CMatrix<int> A;
+	Matrix<int> A;
 	try {
 		A.readFromFile("11111");
 	}
@@ -152,7 +152,7 @@ SCENARIO("MatrixException: init matrix", "[init]") {
 
 SCENARIO("MatrixException: empty matrix", "[empty]") {
 	bool flag = false;
-	CMatrix<int> A;
+	Matrix<int> A;
 	try {
 		cout << A;
 	}
@@ -176,7 +176,7 @@ SCENARIO("MatrixException: index error", "[index]") {
 
 SCENARIO("MatrixException: incompatible matrixes", "[size]") {
 	bool flag = false;
-	CMatrix<int> A(2, 2), B(3, 3);
+	Matrix<int> A(2, 2), B(3, 3);
 	try {
 		A + B;
 	}
@@ -187,11 +187,11 @@ SCENARIO("MatrixException: incompatible matrixes", "[size]") {
 }
 
 SCENARIO("Matrix: operator + for double", "[addition]") {
-	CMatrix<double> A, B, expected;
+	Matrix<double> A, B, expected;
 	A.readFromFile("A2x2.txt");
 	B.readFromFile("B2x2.txt");
 	expected.readFromFile("A+B.txt");
 
-	CMatrix<double> result = A + B;
+	Matrix<double> result = A + B;
 	REQUIRE(result == expected);
 }
