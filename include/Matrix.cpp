@@ -43,34 +43,23 @@ bool Matrix<T>::readFromFile(char* path) {
 	ifstream stream;
 	try {
 		stream.open(path);
-
-		if (stream.is_open()) {
-			unsigned int rows, columns;
-
-			stream >> rows >> columns;
+		if (stream.is_open()) {unsigned int rows, columns;stream >> rows >> columns;
 			T **mass = new T*[rows];
 			for (int i = 0; i < rows; i++) {
 				mass[i] = new T[columns];
-				for (int j = 0; j < molumns; j++) {
+				for (int j = 0; j < columns; j++) {
 					stream >> mass[i][j];
-				}
-			}
-
+					}
 			this->matrix = mass;
 			this->rows = rows;
 			this->columns = columns;
 			stream.close();
-
-			return true;
-		}
-		else {
-			throw initException();
-		}
-	}
+			return true;}else {
+			throw initException();}}
 	catch (const std::exception& e) {
 		cout << e.what() << '\n';
 		return false;
-	}
+}
 	return false;
 }
 
