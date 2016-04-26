@@ -26,7 +26,7 @@ SCENARIO("Matrix: operator +", "[addition]") {
 
 	Matrix<int> result = A + B;
 	REQUIRE(result == expected);
-}
+} 
 
 
 
