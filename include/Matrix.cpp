@@ -41,21 +41,20 @@ Matrix<T>::Matrix(T **matr, unsigned int _rows, unsigned int _columns) : matrix(
 template <typename T>
 bool Matrix<T>::readFromFile(char* path) {
 	ifstream stream;
-	
+	try {
 		stream.open(path);
-		if (stream.is_open()) {
 
+		if (stream.is_open()) {
 			unsigned int rows, columns;
 
 			stream >> rows >> columns;
-			
 			T **mass = new T*[rows];
 			for (int i = 0; i < rows; i++) {
 				mass[i] = new T[columns];
-				for (int j = 0; j < columns; j++) {
+				for (int j = 0; j < molumns; j++) {
 					stream >> mass[i][j];
 				}
-			
+			}
 
 			this->matrix = mass;
 			this->rows = rows;
@@ -64,8 +63,16 @@ bool Matrix<T>::readFromFile(char* path) {
 
 			return true;
 		}
-		
+		else {
+			throw initException();
+		}
 	}
+	catch (const std::exception& e) {
+		cout << e.what() << '\n';
+		return false;
+	}
+	return false;
+}
 
 	return false;
 }
