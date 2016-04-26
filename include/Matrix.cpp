@@ -37,8 +37,9 @@ Matrix<T>::Matrix(T **matr, unsigned int _rows, unsigned int _columns) : matrix(
 		}
 	}
 }
-
-ifstream stream;
+template <typename T>
+bool Matrix<T>::readFromFile(char* path) {
+	ifstream stream;
 	try {
 		stream.open(path);
 
@@ -71,7 +72,6 @@ ifstream stream;
 	}
 	return false;
 }
-
 
 template <typename T>
 unsigned int Matrix<T>::rowsNumber() const {
